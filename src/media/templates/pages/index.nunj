@@ -28,21 +28,9 @@
         <div class="video-section__content-item">
           <div class="video-section__content-title">Title 4</div>
           <div class="video-section__content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam atque consequatur cumque delectus dicta dolorem doloremque ea eaque eos error esse explicabo harum id itaque nobis provident quasi quo ratione rem repellendus repudiandae rerum, sapiente sed sequi soluta voluptas.</div>
-
         </div>
       </div>
-      <div class="video-section__video-container">
-
-        <div class="video-frame">
-          <div class="video-frame__video-container" data-fixed-scrolling-videos>
-            <video class="video-frame__video _hidden" src="/media/video/1.mp4" loop preload autoplay playsinline muted></video>
-            <video class="video-frame__video _hidden" src="/media/video/2.mp4" loop preload autoplay playsinline muted></video>
-            <video class="video-frame__video _hidden" src="/media/video/3.mp4" loop preload autoplay playsinline muted></video>
-            <video class="video-frame__video _hidden" src="/media/video/4.mp4" loop preload autoplay playsinline muted></video>
-          </div>
-          <div class="video-frame__frame"></div>
-        </div>
-      </div>
+      <div class="video-section__video-container" data-video-container></div>
     </section>
     <section class="some-section">
       <h1>Some section</h1>

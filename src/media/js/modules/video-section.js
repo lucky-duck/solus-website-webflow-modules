@@ -21,9 +21,10 @@ class VideoSection extends Component {
     this.sectionNodes = Array.from(
       this.containerNode.querySelector('[data-fixed-scrolling-sections]').children
     );
-    this.videoNodes = Array.from(
-      this.containerNode.querySelector('[data-fixed-scrolling-videos]').children
-    );
+    this.videoContainer = this.containerNode.querySelector('[data-video-container]');
+    this.initVideoContainer();
+    this.videoNodesContainer = this.containerNode.querySelector('[data-fixed-scrolling-videos]');
+    this.addVideosOnThePage();
     this.initVisibilitySensor();
     this.updateValues();
     window.addEventListener('resize', this.updateValues);
@@ -39,6 +40,39 @@ class VideoSection extends Component {
   onDestroy() {
     window.removeEventListener('resize', this.updateValues);
     this.removeScrollTracking();
+  }
+
+  initVideoContainer() {
+    this.videoContainer.innerHTML = `
+      <div class="video-frame">
+        <div class="video-frame__video-container" data-fixed-scrolling-videos></div>
+        <div class="video-frame__frame"></div>
+      </div>
+    `;
+  }
+
+  createVideoUrl(index) {
+    return `https://solus-video-section.netlify.com/media/video/${index}.mp4`;
+  }
+
+  addVideosOnThePage() {
+    [1, 2, 3, 4].forEach(index => {
+      const videoNode = document.createElement('video');
+      const attrs = {
+        className: 'video-frame__video _hidden',
+        autoplay: true,
+        loop: true,
+        preload: 'auto',
+        playsinline: true,
+        muted: true,
+        src: this.createVideoUrl(index),
+      };
+      Object.keys(attrs).forEach(key => (videoNode[key] = attrs[key]));
+      this.videoNodesContainer.appendChild(videoNode);
+    });
+    this.videoNodes = Array.from(
+      this.containerNode.querySelector('[data-fixed-scrolling-videos]').children
+    );
   }
 
   initVisibilitySensor() {
