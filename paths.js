@@ -14,6 +14,7 @@ export default {
     nunj: 'src/media/templates/pages/**/*.nunj',
     scripts: 'src/media/js/index.js',
     styles: 'src/media/sass/screen.scss',
+    stylesWebflow: 'src/media/sass/webflow.scss',
     images: 'src/media/img/**/*.*',
     imagesInline: 'src/media/img/inline/',
     fonts: 'src/media/fonts/**/*.*',

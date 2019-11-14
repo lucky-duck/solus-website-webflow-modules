@@ -29,15 +29,13 @@ const PROCESSORS = [
     retina: true,
     padding: 4,
     filterBy: image =>
-      /sprites\/.*\.png$/gi.test(image.url)
-        ? Promise.resolve()
-        : Promise.reject(),
+      /sprites\/.*\.png$/gi.test(image.url) ? Promise.resolve() : Promise.reject(),
   }),
 ];
 
 export default function styles() {
   return gulp
-    .src(PATHS.src.styles)
+    .src([PATHS.src.styles, PATHS.src.stylesWebflow])
     .pipe(
       plumber({
         errorHandler: function(err) {
