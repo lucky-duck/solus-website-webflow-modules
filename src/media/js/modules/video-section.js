@@ -2,6 +2,7 @@ import throttle from 'lodash/throttle';
 
 import { Component } from '../../js/classes/component';
 import visibilitySensor from '../utils/visibility-sensor';
+import { BREAKPOINT_SM } from '../utils/constants';
 
 class VideoSection extends Component {
   onInit() {
@@ -15,7 +16,8 @@ class VideoSection extends Component {
       currentIndex: 0,
     };
 
-    this.handleScrollProgress = throttle(this.handleScrollProgress.bind(this), 60);
+    this.handleScrollProgress = throttle(this.handleScrollProgress.bind(this), 100);
+    this.handleResize = throttle(this.handleResize.bind(this), 100);
     this.updateValues = this.updateValues.bind(this);
 
     this.sectionNodes = Array.from(
@@ -25,10 +27,11 @@ class VideoSection extends Component {
     this.initVideoContainer();
     this.videoNodesContainer = this.containerNode.querySelector('[data-fixed-scrolling-videos]');
     this.addVideosOnThePage();
-    this.initVisibilitySensor();
-    this.updateValues();
-    window.addEventListener('resize', this.updateValues);
-    this.setVideo();
+
+    window.addEventListener('resize', this.handleResize);
+    if (!this.isMobile()) {
+      this.init();
+    }
   }
 
   onStateUpdate(prevState) {
@@ -38,8 +41,25 @@ class VideoSection extends Component {
   }
 
   onDestroy() {
-    window.removeEventListener('resize', this.updateValues);
+    this.destroy();
+  }
+
+  isMobile() {
+    return window.innerWidth <= BREAKPOINT_SM;
+  }
+
+  init() {
+    this._initialized = true;
+    this.initVisibilitySensor();
+    this.updateValues();
+
+    this.setVideo();
+  }
+
+  destroy() {
+    this._initialized = false;
     this.removeScrollTracking();
+    this.disableVisibilitySensor();
   }
 
   initVideoContainer() {
@@ -81,6 +101,10 @@ class VideoSection extends Component {
     });
   }
 
+  disableVisibilitySensor() {
+    visibilitySensor.unobserve(this.containerNode);
+  }
+
   addScrollTracking() {
     window.addEventListener('scroll', this.handleScrollProgress);
   }
@@ -102,6 +126,9 @@ class VideoSection extends Component {
     const index = this.state.currentIndex;
     const prevVideoNode = this.videoNodes[prevIndex];
     const nextVideoNode = this.videoNodes[index];
+    if (!nextVideoNode) {
+      return;
+    }
     if (prevVideoNode) {
       prevVideoNode.classList.add('_hidden');
       prevVideoNode.pause();
@@ -109,6 +136,15 @@ class VideoSection extends Component {
     nextVideoNode.classList.remove('_hidden');
     nextVideoNode.currentTime = 0;
     nextVideoNode.play();
+  }
+
+  handleResize() {
+    const IS_MOBILE = this.isMobile();
+    if (this._initialized) {
+      IS_MOBILE ? this.destroy() : this.updateValues();
+    } else {
+      !IS_MOBILE && this.init();
+    }
   }
 
   updateValues() {
