@@ -6,14 +6,46 @@
 
 {% block content %}
   <div class="page-home page">
-    <div class="container">
-      <h1 class="page-home__title title">Home page</h1>
-      {{ button({
-        className: 'page-home__button',
-        children: 'Buy something',
-        chevronRight: true
-      }) }}
-      {% include "../../components/some-widget/some-widget.nunj" %}
-    </div>
+    <section class="some-section">
+      <h1>Some section</h1>
+    </section>
+    <section id="video-section" class="video-section">
+      <div class="video-section__content" data-fixed-scrolling-sections>
+        <div class="video-section__content-item">
+          <div class="video-section__content-title">Title 1</div>
+          <div class="video-section__content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam atque consequatur cumque delectus dicta dolorem doloremque ea eaque eos error esse explicabo harum id itaque nobis provident quasi quo ratione rem repellendus repudiandae rerum, sapiente sed sequi soluta voluptas.</div>
+        </div>
+        <div class="video-section__content-item">
+          <div class="video-section__content-title">Title 2</div>
+          <div class="video-section__content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam atque consequatur cumque delectus dicta dolorem doloremque ea eaque eos error esse explicabo harum id itaque nobis provident quasi quo ratione rem repellendus repudiandae rerum, sapiente sed sequi soluta voluptas.</div>
+
+        </div>
+        <div class="video-section__content-item">
+          <div class="video-section__content-title">Title 3</div>
+          <div class="video-section__content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam atque consequatur cumque delectus dicta dolorem doloremque ea eaque eos error esse explicabo harum id itaque nobis provident quasi quo ratione rem repellendus repudiandae rerum, sapiente sed sequi soluta voluptas.</div>
+
+        </div>
+        <div class="video-section__content-item">
+          <div class="video-section__content-title">Title 4</div>
+          <div class="video-section__content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam atque consequatur cumque delectus dicta dolorem doloremque ea eaque eos error esse explicabo harum id itaque nobis provident quasi quo ratione rem repellendus repudiandae rerum, sapiente sed sequi soluta voluptas.</div>
+
+        </div>
+      </div>
+      <div class="video-section__video-container">
+
+        <div class="video-frame">
+          <div class="video-frame__video-container" data-fixed-scrolling-videos>
+            <video class="video-frame__video _hidden" src="/media/video/1.mp4" loop preload autoplay playsinline muted></video>
+            <video class="video-frame__video _hidden" src="/media/video/2.mp4" loop preload autoplay playsinline muted></video>
+            <video class="video-frame__video _hidden" src="/media/video/3.mp4" loop preload autoplay playsinline muted></video>
+            <video class="video-frame__video _hidden" src="/media/video/4.mp4" loop preload autoplay playsinline muted></video>
+          </div>
+          <div class="video-frame__frame"></div>
+        </div>
+      </div>
+    </section>
+    <section class="some-section">
+      <h1>Some section</h1>
+    </section>
   </div>
 {% endblock content %}

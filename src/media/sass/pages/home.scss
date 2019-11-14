@@ -1,5 +1,5 @@
 .page-home {
-  padding: 60px 0;
+  font-family: 'San Francisco Display', Arial;
 
   &__title {
     margin-bottom: 60px;
@@ -7,5 +7,97 @@
 
   &__button {
     margin-bottom: 60px;
+  }
+}
+
+.some-section {
+  height: 1400px;
+  background-color: papayawhip;
+  padding: 60px;
+}
+
+.video-section {
+  position: relative;
+  background-color: #1b1b1b;
+  display: flex;
+
+  &__content {
+    width: 50%;
+
+    &-item {
+      padding: 100px 60px;
+      height: 100vh;
+    }
+
+    &-title {
+      font-size: 22px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    &-text {
+      font-size: 16px;
+      color: #949494;
+      line-height: 1.5;
+    }
+  }
+
+  &__video-container {
+    position: sticky;
+    display: flex;
+    width: 100%;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    overflow: hidden;
+    left: auto;
+    bottom: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.video-frame {
+  position: relative;
+
+  &__frame {
+    position: relative;
+    width: 321px;
+    background-image: inline('../images/frame.png');
+    background-size: cover;
+
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 183.13%;
+    }
+  }
+
+  &__video-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 76%;
+    height: 88%;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  &__video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.55s ease-in-out;
+    will-change: opacity;
+
+    &._hidden {
+      opacity: 0;
+    }
   }
 }

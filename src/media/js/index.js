@@ -1,6 +1,9 @@
+import 'intersection-observer';
+import 'core-js/stable/array';
+
 global.ProjectName = new (function() {
   this.modules = {
-    SomeWidget: require('../components/some-widget/some-widget'),
+    VideoSection: require('./modules/video-section'),
   };
 })();
 
