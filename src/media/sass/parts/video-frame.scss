@@ -43,11 +43,17 @@
   &._white {
     .video-frame {
       &__frame {
+        width: 300px;
         background-image: inline('../images/frame-white.png');
 
         &:before {
           padding-top: 183.13%;
         }
+      }
+
+      &__video-container {
+        width: 80%;
+        height: 86%;
       }
     }
   }
