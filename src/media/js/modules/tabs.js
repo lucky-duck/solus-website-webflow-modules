@@ -3,9 +3,7 @@ import { createVideoNode } from './video-frame-utils';
 class Tabs {
   constructor() {
     this.containerNode = document.querySelector('[data-video-tabs]');
-    this.frameContainers = Array.from(
-      this.containerNode.querySelectorAll('[data-frame-container]')
-    );
+    this.frameContainers = Array.from(this.containerNode.querySelectorAll('[data-video-frame]'));
     this.frameContainers.forEach(node => {
       const index = node.dataset.frameContainer;
       node.appendChild(createVideoNode(index));
