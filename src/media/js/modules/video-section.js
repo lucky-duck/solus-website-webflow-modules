@@ -69,7 +69,7 @@ class VideoSection extends Component {
 
   addVideosOnThePage() {
     [1, 2, 3, 4].forEach(index => {
-      this.videoNodesContainer.appendChild(createVideoNode(index, { hidden: true }));
+      this.videoNodesContainer.appendChild(createVideoNode(index, { customClasses: ['_hidden'] }));
     });
     this.videoNodes = Array.from(
       this.containerNode.querySelector('[data-video-frame-videos]').children

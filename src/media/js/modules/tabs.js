@@ -6,10 +6,8 @@ class Tabs {
     this.frameContainers = Array.from(this.containerNode.querySelectorAll('[data-video-frame]'));
     this.frameContainers.forEach(node => {
       const index = node.dataset.videoFrame;
-      node.innerHTML = createVideoFrameMarkup({ whiteFrame: true });
-      node
-        .querySelector('[data-video-frame-videos]')
-        .appendChild(createVideoNode(index, { hidden: false }));
+      node.innerHTML = createVideoFrameMarkup({ customClasses: ['_white', '_tabs'] });
+      node.querySelector('[data-video-frame-videos]').appendChild(createVideoNode(index));
     });
   }
 }

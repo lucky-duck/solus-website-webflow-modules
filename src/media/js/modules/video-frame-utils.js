@@ -1,6 +1,10 @@
-export function createVideoFrameMarkup({ whiteFrame } = { whiteFrame: false }) {
+function renderCustomClasses(customClasses) {
+  return customClasses ? customClasses.join(' ') : '';
+}
+
+export function createVideoFrameMarkup({ customClasses } = {}) {
   return `
-    <div class="video-frame ${whiteFrame ? '_white' : ''}">
+    <div class="video-frame ${renderCustomClasses(customClasses)}">
       <div class="video-frame__video-container" data-video-frame-videos></div>
       <div class="video-frame__frame"></div>
     </div>
@@ -11,10 +15,10 @@ function createVideoUrl(index) {
   return `https://solus-webflow-modules.netlify.com/media/video/${index}.mp4`;
 }
 
-export function createVideoNode(index, { hidden } = { hidden: false }) {
+export function createVideoNode(index, { customClasses } = {}) {
   const videoNode = document.createElement('video');
   const attrs = {
-    className: `video-frame__video ${hidden ? '_hidden' : ''}`,
+    className: `video-frame__video ${renderCustomClasses(customClasses)}`,
     autoplay: true,
     loop: true,
     preload: 'auto',
