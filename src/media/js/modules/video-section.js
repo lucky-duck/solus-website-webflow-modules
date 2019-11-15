@@ -67,10 +67,6 @@ class VideoSection extends Component {
     this.videoContainer.innerHTML = createVideoFrameMarkup({ fixedScrolling: true });
   }
 
-  createVideoUrl(index) {
-    return `https://solus-webflow-modules.netlify.com/media/video/${index}.mp4`;
-  }
-
   addVideosOnThePage() {
     [1, 2, 3, 4].forEach(index => {
       this.videoNodesContainer.appendChild(createVideoNode(index));

@@ -8,7 +8,7 @@ export function createVideoFrameMarkup({ whiteFrame } = { whiteFrame: false }) {
 }
 
 function createVideoUrl(index) {
-  return `https://solus-video-section.netlify.com/media/video/${index}.mp4`;
+  return `https://solus-webflow-modules.netlify.com/media/video/${index}.mp4`;
 }
 
 export function createVideoNode(index) {
