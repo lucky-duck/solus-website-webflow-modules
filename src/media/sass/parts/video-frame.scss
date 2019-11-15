@@ -39,4 +39,16 @@
       opacity: 0;
     }
   }
+
+  &._white {
+    .video-frame {
+      &__frame {
+        background-image: inline('../images/frame-white.png');
+
+        &:before {
+          padding-top: 183.13%;
+        }
+      }
+    }
+  }
 }

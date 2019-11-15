@@ -3,6 +3,7 @@ import throttle from 'lodash/throttle';
 import { Component } from '../../js/classes/component';
 import visibilitySensor from '../utils/visibility-sensor';
 import { BREAKPOINT_SM } from '../utils/constants';
+import { createVideoFrameMarkup, createVideoNode } from './video-frame-utils';
 
 class VideoSection extends Component {
   onInit() {
@@ -25,7 +26,7 @@ class VideoSection extends Component {
     );
     this.videoContainer = this.containerNode.querySelector('[data-video-container]');
     this.initVideoContainer();
-    this.videoNodesContainer = this.containerNode.querySelector('[data-fixed-scrolling-videos]');
+    this.videoNodesContainer = this.containerNode.querySelector('[data-video-frame-videos]');
     this.addVideosOnThePage();
 
     window.addEventListener('resize', this.handleResize);
@@ -63,12 +64,7 @@ class VideoSection extends Component {
   }
 
   initVideoContainer() {
-    this.videoContainer.innerHTML = `
-      <div class="video-frame">
-        <div class="video-frame__video-container" data-fixed-scrolling-videos></div>
-        <div class="video-frame__frame"></div>
-      </div>
-    `;
+    this.videoContainer.innerHTML = createVideoFrameMarkup({ fixedScrolling: true });
   }
 
   createVideoUrl(index) {
@@ -77,21 +73,10 @@ class VideoSection extends Component {
 
   addVideosOnThePage() {
     [1, 2, 3, 4].forEach(index => {
-      const videoNode = document.createElement('video');
-      const attrs = {
-        className: 'video-frame__video _hidden',
-        autoplay: true,
-        loop: true,
-        preload: 'auto',
-        playsinline: true,
-        muted: true,
-        src: this.createVideoUrl(index),
-      };
-      Object.keys(attrs).forEach(key => (videoNode[key] = attrs[key]));
-      this.videoNodesContainer.appendChild(videoNode);
+      this.videoNodesContainer.appendChild(createVideoNode(index));
     });
     this.videoNodes = Array.from(
-      this.containerNode.querySelector('[data-fixed-scrolling-videos]').children
+      this.containerNode.querySelector('[data-video-frame-videos]').children
     );
   }
 

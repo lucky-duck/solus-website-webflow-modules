@@ -6,11 +6,11 @@ import { PRODUCTION, hmrEnabled } from './config';
 import paths from './paths';
 
 const entryPoints = {
-  bundle: path.resolve(__dirname, paths.src.scripts),
+  home: path.resolve(__dirname, 'src/media/js/home-page.js'),
+  app: path.resolve(__dirname, 'src/media/js/app-page.js'),
 };
 
-const hotMiddlewareString =
-  'webpack-hot-middleware/client?quiet=true&noInfo=true';
+const hotMiddlewareString = 'webpack-hot-middleware/client?quiet=true&noInfo=true';
 
 export const config = {
   entry: Object.keys(entryPoints).reduce((acc, currentKey) => {
@@ -19,7 +19,7 @@ export const config = {
     return acc;
   }, {}),
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, paths.build.scripts),
     publicPath: '/media/js',
   },
@@ -68,22 +68,10 @@ export const config = {
         'node_modules',
         'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js'
       ),
-      TweenLite: path.resolve(
-        'node_modules',
-        'gsap/src/uncompressed/TweenLite.js'
-      ),
-      TweenMax: path.resolve(
-        'node_modules',
-        'gsap/src/uncompressed/TweenMax.js'
-      ),
-      TimelineLite: path.resolve(
-        'node_modules',
-        'gsap/src/uncompressed/TimelineLite.js'
-      ),
-      TimelineMax: path.resolve(
-        'node_modules',
-        'gsap/src/uncompressed/TimelineMax.js'
-      ),
+      TweenLite: path.resolve('node_modules', 'gsap/src/uncompressed/TweenLite.js'),
+      TweenMax: path.resolve('node_modules', 'gsap/src/uncompressed/TweenMax.js'),
+      TimelineLite: path.resolve('node_modules', 'gsap/src/uncompressed/TimelineLite.js'),
+      TimelineMax: path.resolve('node_modules', 'gsap/src/uncompressed/TimelineMax.js'),
     },
   },
   plugins: PRODUCTION ? [] : [new webpack.HotModuleReplacementPlugin()],
