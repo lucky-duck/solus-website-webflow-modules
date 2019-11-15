@@ -1,4 +1,4 @@
-import { createVideoNode } from './video-frame-utils';
+import { createVideoFrameMarkup, createVideoNode } from './video-frame-utils';
 
 class Tabs {
   constructor() {
@@ -6,7 +6,8 @@ class Tabs {
     this.frameContainers = Array.from(this.containerNode.querySelectorAll('[data-video-frame]'));
     this.frameContainers.forEach(node => {
       const index = node.dataset.videoFrame;
-      node.appendChild(createVideoNode(index));
+      createVideoFrameMarkup(node);
+      node.querySelector('[data-video-frame-videos]').appendChild(createVideoNode(index));
     });
   }
 }

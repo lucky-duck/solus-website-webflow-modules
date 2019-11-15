@@ -64,7 +64,7 @@ class VideoSection extends Component {
   }
 
   initVideoContainer() {
-    this.videoContainer.innerHTML = createVideoFrameMarkup({ fixedScrolling: true });
+    this.videoContainer.innerHTML = createVideoFrameMarkup();
   }
 
   addVideosOnThePage() {
