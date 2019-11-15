@@ -11,10 +11,10 @@ function createVideoUrl(index) {
   return `https://solus-webflow-modules.netlify.com/media/video/${index}.mp4`;
 }
 
-export function createVideoNode(index) {
+export function createVideoNode(index, { hidden } = { hidden: false }) {
   const videoNode = document.createElement('video');
   const attrs = {
-    className: 'video-frame__video _hidden',
+    className: `video-frame__video ${hidden ? '_hidden' : ''}`,
     autoplay: true,
     loop: true,
     preload: 'auto',
