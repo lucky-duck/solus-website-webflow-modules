@@ -1,7 +1,6 @@
-// import 'intersection-observer';
 import 'core-js/stable/array';
 
-global.ProjectName = new (function() {
+global.SOLUS = new (function() {
   this.modules = {
     Tabs: require('./modules/tabs'),
   };

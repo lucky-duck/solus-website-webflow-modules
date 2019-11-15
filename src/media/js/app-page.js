@@ -1,7 +1,7 @@
 import 'intersection-observer';
 import 'core-js/stable/array';
 
-global.ProjectName = new (function() {
+global.SOLUS = new (function() {
   this.modules = {
     VideoSection: require('./modules/video-section'),
   };
