@@ -68,7 +68,7 @@ class VideoSection extends Component {
   }
 
   createVideoUrl(index) {
-    return `https://solus-video-section.netlify.com/media/video/${index}.mp4`;
+    return `https://solus-webflow-modules.netlify.com/media/video/${index}.mp4`;
   }
 
   addVideosOnThePage() {
