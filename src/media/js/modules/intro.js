@@ -9,7 +9,7 @@ class Intro {
     this.buttonNodes = Array.from(document.querySelector('[data-intro-buttons]').children);
 
     setInterval(() => {
-      this.currentIndex = nextTabAndReturnNewIndex(this.buttonNodes);
+      this.currentIndex = nextTabAndReturnNewIndex(this.buttonNodes, this.currentIndex);
     }, TIMEOUT);
   }
 }
