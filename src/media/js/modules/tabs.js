@@ -22,9 +22,8 @@ class Tabs extends Component {
 
   next() {
     setTimeout(() => {
-      this.currentVideoNode.pause();
-      this.currentVideoNode.currentTime = 0;
       this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
+      this.currentVideoNode.currentTime = 0;
       this.currentVideoNode = this.videoNodes[this.currentIndex];
       this.currentVideoNode.play();
     }, 750);
