@@ -22,10 +22,13 @@ class Tabs extends Component {
 
   next() {
     setTimeout(() => {
+      const prevNode = this.currentVideoNode;
       this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
-      this.currentVideoNode.currentTime = 0;
       this.currentVideoNode = this.videoNodes[this.currentIndex];
       this.currentVideoNode.play();
+      setTimeout(() => {
+        prevNode.currentTime = 0;
+      }, 100);
     }, 750);
   }
 
