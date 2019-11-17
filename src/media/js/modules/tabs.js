@@ -49,9 +49,9 @@ class Tabs extends Component {
     });
   }
 
-  next() {
+  next = () => {
     this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes);
-  }
+  };
 
   start() {
     this.currentVideoNode && this.currentVideoNode.play();
