@@ -5,6 +5,7 @@ import { Component } from '../classes/component';
 
 class Tabs extends Component {
   onInit() {
+    this.currentIndex = 0;
     this.containerNode = document.querySelector('[data-video-tabs]');
     this.tabButtonNodes = Array.from(
       this.containerNode.querySelector('[data-tab-buttons]').children
