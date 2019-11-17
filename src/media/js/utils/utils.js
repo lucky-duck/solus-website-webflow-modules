@@ -1,6 +1,6 @@
 export function nextTabAndReturnNewIndex(buttonNodes, index) {
-  const nextIndex = this.currentIndex === this.buttonNodes.length - 1 ? 0 : this.currentIndex + 1;
-  const buttonNode = this.buttonNodes[nextIndex];
+  const nextIndex = index === buttonNodes.length - 1 ? 0 : index + 1;
+  const buttonNode = buttonNodes[nextIndex];
   if (buttonNode) {
     buttonNode.click();
   }
