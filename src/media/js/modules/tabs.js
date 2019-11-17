@@ -19,6 +19,7 @@ class Tabs extends Component {
   }
 
   createVideos() {
+    this.videoNodes = [];
     this.frameContainers.forEach((node, tabIndex) => {
       const index = node.dataset.videoFrame;
       node.innerHTML = createVideoFrameMarkup({
@@ -29,6 +30,7 @@ class Tabs extends Component {
         this.currentVideoNode = videoNode;
       }
       this.addOnEndHandler(videoNode);
+      this.videoNodes.push(videoNode);
       node.querySelector('[data-video-frame-videos]').appendChild(videoNode);
     });
   }
@@ -50,7 +52,11 @@ class Tabs extends Component {
   }
 
   next = () => {
-    this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes);
+    this.currentVideoNode.pause();
+    this.currentVideoNode.currentTime = 0;
+    this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
+    this.currentVideoNode = this.videoNodes[this.currentIndex];
+    this.currentVideoNode.play();
   };
 
   start() {
