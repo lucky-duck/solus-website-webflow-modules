@@ -18,6 +18,14 @@ class Tabs extends Component {
     this.disableVisibilitySensor();
   }
 
+  next = () => {
+    this.currentVideoNode.pause();
+    this.currentVideoNode.currentTime = 0;
+    this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
+    this.currentVideoNode = this.videoNodes[this.currentIndex];
+    this.currentVideoNode.play();
+  };
+
   createVideos() {
     this.videoNodes = [];
     this.frameContainers.forEach((node, tabIndex) => {
@@ -46,18 +54,8 @@ class Tabs extends Component {
   }
 
   addOnEndHandler(videoNode) {
-    videoNode.addEventListener('ended', () => {
-      this.next();
-    });
+    videoNode.addEventListener('ended', this.next);
   }
-
-  next = () => {
-    this.currentVideoNode.pause();
-    this.currentVideoNode.currentTime = 0;
-    this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
-    this.currentVideoNode = this.videoNodes[this.currentIndex];
-    this.currentVideoNode.play();
-  };
 
   start() {
     this.currentVideoNode && this.currentVideoNode.play();
