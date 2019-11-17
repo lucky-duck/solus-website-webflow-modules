@@ -29,7 +29,7 @@ class Tabs extends Component {
       setTimeout(() => {
         prevNode.currentTime = 0;
       }, 100);
-    }, 750);
+    }, 350);
   }
 
   createVideos() {
