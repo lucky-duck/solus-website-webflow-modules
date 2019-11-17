@@ -13,7 +13,7 @@ class Tabs extends Component {
     this.frameContainers = Array.from(this.containerNode.querySelectorAll('[data-video-frame]'));
     this.nextMethodShim = this.next.bind(this);
     this.createVideos();
-    // this.initVisibilitySensor();
+    this.initVisibilitySensor();
   }
 
   onDestroy() {
