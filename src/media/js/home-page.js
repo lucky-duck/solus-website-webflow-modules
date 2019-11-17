@@ -2,6 +2,7 @@ import 'core-js/stable/array';
 
 global.SOLUS = new (function() {
   this.modules = {
+    Intro: require('./modules/intro'),
     Tabs: require('./modules/tabs'),
   };
 })();
