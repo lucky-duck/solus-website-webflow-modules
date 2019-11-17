@@ -6,7 +6,9 @@ import { Component } from '../classes/component';
 class Tabs extends Component {
   onInit() {
     this.containerNode = document.querySelector('[data-video-tabs]');
-    this.tabButtonNodes = Array.from(this.containerNode.querySelector('data-tab-buttons').children);
+    this.tabButtonNodes = Array.from(
+      this.containerNode.querySelector('[data-tab-buttons]').children
+    );
     this.frameContainers = Array.from(this.containerNode.querySelectorAll('[data-video-frame]'));
     this.createVideos();
     this.initVisibilitySensor();
