@@ -1,3 +1,4 @@
+import 'intersection-observer';
 import 'core-js/stable/array';
 
 global.SOLUS = new (function() {
