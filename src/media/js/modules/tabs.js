@@ -62,6 +62,7 @@ class Tabs extends Component {
   }
 
   start() {
+    console.log('this.currentVideoNode', this.currentVideoNode);
     this.currentVideoNode && this.currentVideoNode.play();
   }
 
