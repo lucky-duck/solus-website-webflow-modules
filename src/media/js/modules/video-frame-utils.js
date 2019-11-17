@@ -15,17 +15,24 @@ function createVideoUrl(index) {
   return `https://solus-webflow-modules.netlify.com/media/video/${index}.mp4`;
 }
 
-export function createVideoNode(index, { customClasses } = {}) {
+export function createVideoNode(
+  index,
+  { customClasses, loop, autoplay } = { autoplay: true, loop: true }
+) {
   const videoNode = document.createElement('video');
   const attrs = {
     className: `video-frame__video ${renderCustomClasses(customClasses)}`,
-    autoplay: true,
-    loop: true,
     preload: 'auto',
     playsinline: true,
     muted: true,
     src: createVideoUrl(index),
   };
+  if (loop) {
+    attrs.loop = true;
+  }
+  if (autoplay) {
+    attrs.autoplay = true;
+  }
   Object.keys(attrs).forEach(key => (videoNode[key] = attrs[key]));
   return videoNode;
 }

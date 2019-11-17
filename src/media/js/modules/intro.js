@@ -4,7 +4,7 @@ class Intro {
   constructor() {
     this.currentIndex = 0;
 
-    this.buttonNodes = Array.from(document.querySelectorAll('[data-intro-buttons]').children);
+    this.buttonNodes = Array.from(document.querySelector('[data-intro-buttons]').children);
 
     setInterval(() => {
       this.currentIndex =
