@@ -1,0 +1,15 @@
+.black-nav-wrapper {
+  transition: background-color 0.35s ease-out, transform 0.35s ease-out, height 0.35s ease-out;
+  will-change: transform;
+
+  &._scrolled {
+    background-color: #fff;
+    color: #1b1b1b;
+    transform: translate3d(0px, -100%, 0px);
+
+    &._visible {
+      transform: translate3d(0px, 0px, 0px);
+      box-shadow: 0 0 6px rgba(#1b1b1b, 0.15);
+    }
+  }
+}

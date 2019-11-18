@@ -6,6 +6,7 @@ import { PRODUCTION, hmrEnabled } from './config';
 import paths from './paths';
 
 const entryPoints = {
+  common: path.resolve(__dirname, 'src/media/js/common.js'),
   home: path.resolve(__dirname, 'src/media/js/home-page.js'),
   app: path.resolve(__dirname, 'src/media/js/app-page.js'),
 };
