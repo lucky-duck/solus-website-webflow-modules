@@ -4,8 +4,6 @@
   will-change: transform;
 
   &._scrolled {
-    background-color: #fff;
-    color: #1b1b1b;
     transform: translate3d(0px, -100%, 0px);
 
     &._visible {
