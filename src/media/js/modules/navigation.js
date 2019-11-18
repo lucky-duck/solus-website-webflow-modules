@@ -1,9 +1,7 @@
 import throttle from 'lodash/throttle';
 
 class Header {
-  headerNode = document.querySelector(
-    '.black-nav-wrapper #navbar-inner, .white-nav-wrapper #navbar-inner'
-  );
+  headerNode = document.querySelector('#navbar-inner');
   visible = false;
   scrolled = false;
 
