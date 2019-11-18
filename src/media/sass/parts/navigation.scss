@@ -1,5 +1,5 @@
-.black-nav-wrapper,
-.white-nav-wrapper {
+.black-nav-wrapper > div,
+.white-nav-wrapper > div {
   transition: background-color 0.35s ease-out, transform 0.35s ease-out, height 0.35s ease-out;
   will-change: transform;
 
@@ -9,6 +9,11 @@
     transform: translate3d(0px, -100%, 0px);
 
     &._visible {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
       transform: translate3d(0px, 0px, 0px);
       box-shadow: 0 0 6px rgba(#1b1b1b, 0.15);
     }

@@ -1,7 +1,7 @@
 import throttle from 'lodash/throttle';
 
 class Header {
-  headerNode = document.querySelector('.black-nav-wrapper, .white-nav-wrapper');
+  headerNode = document.querySelector('.black-nav-wrapper > div, .white-nav-wrapper > div');
   visible = false;
   scrolled = false;
 
