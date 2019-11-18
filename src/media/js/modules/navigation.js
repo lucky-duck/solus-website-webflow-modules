@@ -9,12 +9,10 @@ class Header {
     if (!this.headerNode) {
       return;
     }
-    this.logoLinkNode = this.headerNode.querySelector('[data-logo-link]');
     this.scrollTop = this.getScrollTop();
 
     this.addEvents();
     this.update();
-    this.initLogoLinkLogic();
 
     if (module.hot) {
       module.hot.dispose(() => {
@@ -25,20 +23,10 @@ class Header {
 
   addEvents() {
     window.addEventListener('scroll', this.handleScroll);
-    this.logoLinkNode.addEventListener('click', this.handleLogoLinkClick);
   }
 
   removeEvents() {
     window.removeEventListener('scroll', this.handleScroll);
-    this.logoLinkNode.removeEventListener('click', this.handleLogoLinkClick);
-  }
-
-  initLogoLinkLogic() {
-    const href = this.logoLinkNode.getAttribute('href');
-    if (window.location.pathname === href) {
-      this.isHomePage = true;
-      this.logoLinkNode.classList.add('_disabled');
-    }
   }
 
   getScrollTop() {
@@ -48,12 +36,6 @@ class Header {
 
   handleScroll = () => {
     this.update();
-  };
-
-  handleLogoLinkClick = e => {
-    if (this.isHomePage) {
-      e.preventDefault();
-    }
   };
 
   update = throttle(() => {
