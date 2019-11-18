@@ -9,6 +9,10 @@ class Header {
     if (!this.headerNode) {
       return;
     }
+    const parentNode = this.headerNode.parentNode.parentNode;
+    if (parentNode.dataset.noSticky) {
+      return;
+    }
     this.scrollTop = this.getScrollTop();
 
     this.addEvents();
