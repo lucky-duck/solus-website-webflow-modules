@@ -1,7 +1,9 @@
 import throttle from 'lodash/throttle';
 
 class Header {
-  headerNode = document.querySelector('.black-nav-wrapper > div, .white-nav-wrapper > div');
+  headerNode = document.querySelector(
+    '.black-nav-wrapper #navbar-inner, .white-nav-wrapper #navbar-inner'
+  );
   visible = false;
   scrolled = false;
 
@@ -9,6 +11,7 @@ class Header {
     if (!this.headerNode) {
       return;
     }
+    this.changeContainerHeight();
     this.scrollTop = this.getScrollTop();
 
     this.addEvents();
@@ -27,6 +30,10 @@ class Header {
 
   removeEvents() {
     window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  changeContainerHeight() {
+    this.headerNode.parentNode.style.height = this.headerNode.offsetHeight;
   }
 
   getScrollTop() {
