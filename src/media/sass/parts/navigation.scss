@@ -1,6 +1,13 @@
 .black-nav-wrapper,
 .white-nav-wrapper {
   position: relative;
+}
+
+.black-nav-wrapper {
+  background-color: #000;
+}
+
+.white-nav-wrapper {
   background-color: #fff;
 }
 
