@@ -16,7 +16,7 @@ class Header {
       return;
     }
 
-    this.handleResizeShim = throttle(this.handleResize, 60);
+    this.handleResizeShim = throttle(() => this.handleResize(), 60);
 
     window.addEventListener('resize', this.handleResizeShim);
 
