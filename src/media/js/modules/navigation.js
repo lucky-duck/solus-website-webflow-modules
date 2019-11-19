@@ -1,5 +1,4 @@
 import throttle from 'lodash/throttle';
-import { BREAKPOINT_MD } from '../utils/constants';
 import { isTabletOrMobile } from '../utils/utils';
 
 class Header {

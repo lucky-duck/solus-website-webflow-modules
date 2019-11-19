@@ -6,7 +6,12 @@
     "jquery": true,
     "commonjs": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier", "gsap"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "gsap"
+  ],
   "globals": {
     "cy": true
   },
