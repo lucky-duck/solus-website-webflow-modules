@@ -6,10 +6,22 @@
 
 .black-nav-wrapper {
   background-color: #fff;
+
+  .navbar-inner-container {
+    &._scrolled._visible {
+      background-color: #fff;
+    }
+  }
 }
 
 .white-nav-wrapper {
   background-color: #000;
+
+  .navbar-inner-container {
+    &._scrolled._visible {
+      background-color: #000;
+    }
+  }
 }
 
 .w-nav {
