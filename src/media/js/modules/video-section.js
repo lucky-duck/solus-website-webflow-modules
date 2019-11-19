@@ -13,6 +13,7 @@ class VideoSection extends Component {
       return;
     }
 
+    // eslint-disable-next-line
     this.state = {
       currentIndex: 0,
     };

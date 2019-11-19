@@ -9,11 +9,11 @@ modalRoot.id = 'modal-root';
 document.body.appendChild(modalRoot);
 
 class VideoModalRenderer extends Component {
-  state = {
-    modalShown: false,
-  };
-
   onInit() {
+    // eslint-disable-next-line
+    this.state = {
+      modalShown: false,
+    };
     this.openerNode = document.getElementById('video-button');
     if (!this.openerNode) {
       return;
