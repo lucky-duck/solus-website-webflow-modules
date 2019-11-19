@@ -1,14 +1,14 @@
 import React from 'react';
-import { render, h } from 'preact';
+import ReactDOM from 'react-dom';
 
-import { Component } from '../classes/component';
+import { Component as StatefulComponent } from '../classes/component';
 import VideoModal from '../preact-components/video-modal';
 
 const modalRoot = document.createElement('div');
 modalRoot.id = 'modal-root';
 document.body.appendChild(modalRoot);
 
-class VideoModalRenderer extends Component {
+class VideoModalRenderer extends StatefulComponent {
   onInit() {
     // eslint-disable-next-line
     this.state = {
@@ -22,9 +22,10 @@ class VideoModalRenderer extends Component {
       e.preventDefault();
       this.setState({ modalShown: true });
     });
+    this.render();
   }
 
-  onUpdate() {
+  onStateUpdate() {
     this.render();
   }
 
@@ -34,7 +35,7 @@ class VideoModalRenderer extends Component {
 
   // eslint-disable-next-line
   render() {
-    render(
+    ReactDOM.render(
       <VideoModal show={this.state.modalShown} videoId={'374027762'} onClose={this.handleClose} />,
       modalRoot
     );
