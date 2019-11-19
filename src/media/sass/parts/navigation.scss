@@ -25,14 +25,12 @@
 }
 
 .w-nav {
-  background-color: inherit;
 }
 
 .navbar-inner-container {
   transition: background-color 0.35s ease-out, transform 0.35s ease-out, height 0.35s ease-out,
     box-shadow 0.35s ease-out;
   will-change: transform;
-  background-color: inherit;
 
   &._scrolled {
     transform: translate3d(0px, -100%, 0px);
@@ -49,7 +47,6 @@
   }
 
   .navbar-inner {
-    background-color: inherit;
     box-sizing: content-box;
   }
 }
