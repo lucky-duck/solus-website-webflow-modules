@@ -15,7 +15,7 @@
 {% endblock content %}
 
 {% block scripts %}
-  <script src="media/js/bundle.js?hash"></script>
+  <script src="media/js/common.js?hash"></script>
 {% endblock scripts %}
 </body>
 </html>

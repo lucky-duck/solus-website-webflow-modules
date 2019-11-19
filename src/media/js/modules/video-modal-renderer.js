@@ -1,12 +1,12 @@
 import React from 'react';
-import { render } from 'preact';
+import { render, h } from 'preact';
 
 import { Component } from '../classes/component';
 import VideoModal from '../preact-components/video-modal';
 
 const modalRoot = document.createElement('div');
 modalRoot.id = 'modal-root';
-document.appendChild(modalRoot);
+document.body.appendChild(modalRoot);
 
 class VideoModalRenderer extends Component {
   state = {
@@ -15,6 +15,9 @@ class VideoModalRenderer extends Component {
 
   onInit() {
     this.openerNode = document.getElementById('video-button');
+    if (!this.openerNode) {
+      return;
+    }
     this.openerNode.addEventListener('click', e => {
       e.preventDefault();
       this.setState({ modalShown: true });
