@@ -15,7 +15,8 @@ class VideoModalRenderer extends Component {
 
   onInit() {
     this.openerNode = document.getElementById('video-button');
-    this.openerNode.addEventListener('click', () => {
+    this.openerNode.addEventListener('click', e => {
+      e.preventDefault();
       this.setState({ modalShown: true });
     });
   }
