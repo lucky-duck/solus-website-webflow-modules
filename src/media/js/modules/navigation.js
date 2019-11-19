@@ -1,4 +1,6 @@
 import throttle from 'lodash/throttle';
+import { BREAKPOINT_MD } from '../utils/constants';
+import { isTabletOrMobile } from '../utils/utils';
 
 class Header {
   headerNode = document.querySelector('.navbar-inner-container');
@@ -15,8 +17,15 @@ class Header {
     }
     this.scrollTop = this.getScrollTop();
 
-    this.addEvents();
     this.update();
+
+    this.handleResizeShim = throttle(this.handleResize, 60);
+
+    window.addEventListener('resize', this.handleResizeShim);
+
+    if (!isTabletOrMobile()) {
+      this.turnOn();
+    }
 
     if (module.hot) {
       module.hot.dispose(() => {
@@ -31,6 +40,31 @@ class Header {
 
   removeEvents() {
     window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  turnOn() {
+    if (this._turnedOn) {
+      return;
+    }
+    this.addEvents();
+    this._turnedOn = true;
+  }
+
+  turnOff() {
+    if (!this._turnedOn) {
+      return;
+    }
+    this.removeEvents();
+    this.headerNode.classList.remove('_scrolled', '_visible');
+    this._turnedOn = false;
+  }
+
+  handleResize() {
+    if (isTabletOrMobile()) {
+      this.turnOff();
+    } else {
+      this.turnOn();
+    }
   }
 
   getScrollTop() {
