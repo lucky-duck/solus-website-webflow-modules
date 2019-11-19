@@ -15,9 +15,6 @@ class Header {
     if (parentNode.dataset.noSticky) {
       return;
     }
-    this.scrollTop = this.getScrollTop();
-
-    this.update();
 
     this.handleResizeShim = throttle(this.handleResize, 60);
 
@@ -46,6 +43,8 @@ class Header {
     if (this._turnedOn) {
       return;
     }
+    this.scrollTop = this.getScrollTop();
+    this.update();
     this.addEvents();
     this._turnedOn = true;
   }
