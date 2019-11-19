@@ -6,7 +6,7 @@
     "jquery": true,
     "commonjs": true
   },
-  "extends": ["eslint:recommended", "prettier", "gsap"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier", "gsap"],
   "globals": {
     "cy": true
   },
@@ -15,7 +15,9 @@
     "no-class-assign": "off",
     "import/no-named-as-default": "off",
     "no-console": "off",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off"
   },
   "plugins": ["prettier"]
 }

@@ -53,10 +53,11 @@ export const config = {
     extensions: ['.js', '.jsx'],
     modules: ['node_modules'],
     alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat',
-      'create-react-class': 'preact-compat/lib/create-react-class',
-      'react-dom-factories': 'preact-compat/lib/react-dom-factories',
+      react: 'preact/compat',
+      'react-dom/test-utils': 'preact/test-utils',
+      'react-dom': 'preact/compat',
+      // 'create-react-class': 'preact-compat/lib/create-react-class',
+      // 'react-dom-factories': 'preact-compat/lib/react-dom-factories',
       ScrollMagic: path.resolve(
         'node_modules',
         'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'
