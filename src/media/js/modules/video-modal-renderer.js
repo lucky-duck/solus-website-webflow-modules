@@ -14,13 +14,15 @@ class VideoModalRenderer extends StatefulComponent {
     this.state = {
       modalShown: false,
     };
-    this.openerNode = document.getElementById('video-button');
-    if (!this.openerNode) {
+    this.openerNodes = Array.from(document.querySelectorAll('.video-button'));
+    if (!this.openerNodes.legnth) {
       return;
     }
-    this.openerNode.addEventListener('click', e => {
-      e.preventDefault();
-      this.setState({ modalShown: true });
+    this.openerNodes.forEach(node => {
+      node.addEventListener('click', e => {
+        e.preventDefault();
+        this.setState({ modalShown: true });
+      });
     });
     this.render();
   }
