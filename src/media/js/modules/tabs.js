@@ -20,6 +20,7 @@ class Tabs extends Component {
         prevVideoNode.pause();
         this.currentIndex = nextTabIndex(this.tabButtonNodes, this.currentIndex);
         this.currentVideoNode = this.videoNodes[this.currentIndex];
+        this.currentVideoNode.currentTime = 0;
         this.currentVideoNode.play();
         setTimeout(() => {
           prevVideoNode.currentTime = 0;
@@ -38,16 +39,6 @@ class Tabs extends Component {
       const nextTabNode = this.tabButtonNodes[nextIndex];
       nextTabNode.click();
     }, 350);
-    // const nextIndex = nextTabIndex(this.tabButtonNodes, this.currentIndex);
-    // setTimeout(() => {
-    //   const prevNode = this.currentVideoNode;
-    //   // this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
-    //   this.currentVideoNode = this.videoNodes[this.currentIndex];
-    //   this.currentVideoNode.play();
-    //   setTimeout(() => {
-    //     prevNode.currentTime = 0;
-    //   }, 100);
-    // }, 350);
   }
 
   createVideos() {
