@@ -21,7 +21,7 @@ export function createVideoNode(
 ) {
   const videoNode = document.createElement('video');
   const attrs = {
-    className: `video-frame__video ${renderCustomClasses(customClasses)}`,
+    class: `video-frame__video ${renderCustomClasses(customClasses)}`,
     preload: 'auto',
     playsinline: true,
     muted: true,
