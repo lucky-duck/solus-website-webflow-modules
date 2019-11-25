@@ -14,6 +14,11 @@ class Tabs extends Component {
     this.nextMethodShim = this.next.bind(this);
     this.createVideos();
     this.initVisibilitySensor();
+    this.tabButtonNodes.forEach((node, index) => {
+      node.addEventListener('click', () => {
+        this.currentIndex = index;
+      });
+    });
   }
 
   onDestroy() {
@@ -23,7 +28,7 @@ class Tabs extends Component {
   next() {
     setTimeout(() => {
       const prevNode = this.currentVideoNode;
-      this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
+      // this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
       this.currentVideoNode = this.videoNodes[this.currentIndex];
       this.currentVideoNode.play();
       setTimeout(() => {
