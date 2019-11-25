@@ -21,7 +21,6 @@ class Tabs extends Component {
         this.currentVideoNode = this.videoNodes[index];
         this.currentVideoNode.pause();
         this.currentVideoNode.currentTime = 0;
-        console.log('tab switched', this.currentVideoNode);
         this.currentVideoNode.load();
         this.currentVideoNode.play();
         this.currentIndex = index;
@@ -76,7 +75,6 @@ class Tabs extends Component {
   }
 
   start() {
-    console.log('start', this.currentVideoNode);
     this.currentVideoNode && this.currentVideoNode.play();
   }
 
