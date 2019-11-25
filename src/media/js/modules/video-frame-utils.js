@@ -23,8 +23,8 @@ export function createVideoNode(
   const attrs = {
     className: `video-frame__video ${renderCustomClasses(customClasses)}`,
     preload: 'auto',
-    playsinline: true,
-    muted: true,
+    playsinline: 'true',
+    muted: 'true',
     src: createVideoUrl(index),
   };
   if (loop) {
