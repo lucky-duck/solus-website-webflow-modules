@@ -23,8 +23,8 @@ export function createVideoNode(
   const attrs = {
     className: `video-frame__video ${renderCustomClasses(customClasses)}`,
     preload: 'auto',
-    playsinline: 'true',
-    muted: 'true',
+    playsinline: true,
+    muted: true,
     src: createVideoUrl(index),
   };
   if (loop) {
@@ -33,6 +33,8 @@ export function createVideoNode(
   if (autoplay) {
     attrs.autoplay = true;
   }
-  Object.keys(attrs).forEach(key => (videoNode[key] = attrs[key]));
+  Object.keys(attrs).forEach(key => {
+    videoNode.setAttribute(key, attrs[key]);
+  });
   return videoNode;
 }
