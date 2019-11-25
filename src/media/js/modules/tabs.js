@@ -1,5 +1,5 @@
 import { createVideoFrameMarkup, createVideoNode } from './video-frame-utils';
-import { nextTabAndReturnNewIndex } from '../utils/utils';
+import { nextTabAndReturnNewIndex, nextTabIndex } from '../utils/utils';
 import visibilitySensor from '../utils/visibility-sensor';
 import { Component } from '../classes/component';
 
@@ -14,9 +14,16 @@ class Tabs extends Component {
     this.nextMethodShim = this.next.bind(this);
     this.createVideos();
     this.initVisibilitySensor();
-    this.tabButtonNodes.forEach((node, index) => {
+    this.tabButtonNodes.forEach(node => {
       node.addEventListener('click', () => {
-        this.currentIndex = index;
+        const prevVideoNode = this.currentVideoNode;
+        prevVideoNode.pause();
+        this.currentIndex = nextTabIndex(this.tabButtonNodes, this.currentIndex);
+        this.currentVideoNode = this.videoNodes[this.currentIndex];
+        this.currentVideoNode.play();
+        setTimeout(() => {
+          prevVideoNode.currentTime = 0;
+        }, 100);
       });
     });
   }
@@ -27,14 +34,19 @@ class Tabs extends Component {
 
   next() {
     setTimeout(() => {
-      const prevNode = this.currentVideoNode;
-      // this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
-      this.currentVideoNode = this.videoNodes[this.currentIndex];
-      this.currentVideoNode.play();
-      setTimeout(() => {
-        prevNode.currentTime = 0;
-      }, 100);
+      const nextTabNode = this.tabButtonNodes[nextTabIndex(this.currentIndex)];
+      nextTabNode.click();
     }, 350);
+    // const nextIndex = nextTabIndex(this.tabButtonNodes, this.currentIndex);
+    // setTimeout(() => {
+    //   const prevNode = this.currentVideoNode;
+    //   // this.currentIndex = nextTabAndReturnNewIndex(this.tabButtonNodes, this.currentIndex);
+    //   this.currentVideoNode = this.videoNodes[this.currentIndex];
+    //   this.currentVideoNode.play();
+    //   setTimeout(() => {
+    //     prevNode.currentTime = 0;
+    //   }, 100);
+    // }, 350);
   }
 
   createVideos() {
