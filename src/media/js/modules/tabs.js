@@ -34,7 +34,8 @@ class Tabs extends Component {
 
   next() {
     setTimeout(() => {
-      const nextTabNode = this.tabButtonNodes[nextTabIndex(this.currentIndex)];
+      const nextIndex = nextTabIndex(this.tabButtonNodes, this.currentIndex);
+      const nextTabNode = this.tabButtonNodes[nextIndex];
       nextTabNode.click();
     }, 350);
     // const nextIndex = nextTabIndex(this.tabButtonNodes, this.currentIndex);
