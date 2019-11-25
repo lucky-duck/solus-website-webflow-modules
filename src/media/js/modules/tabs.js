@@ -22,7 +22,7 @@ class Tabs extends Component {
         this.currentVideoNode = this.videoNodes[this.currentIndex];
         this.currentVideoNode.currentTime = 0;
         console.log('tab switched', this.currentVideoNode);
-        this.currentVideoNode.play();
+        this.currentVideoNode.load();
         setTimeout(() => {
           prevVideoNode.currentTime = 0;
         }, 100);
