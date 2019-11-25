@@ -15,7 +15,7 @@ class VideoModalRenderer extends StatefulComponent {
       modalShown: false,
     };
     this.openerNodes = Array.from(document.querySelectorAll('.video-button'));
-    if (!this.openerNodes.legnth) {
+    if (!this.openerNodes.length) {
       return;
     }
     this.openerNodes.forEach(node => {
