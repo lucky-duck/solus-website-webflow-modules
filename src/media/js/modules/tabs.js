@@ -14,16 +14,17 @@ class Tabs extends Component {
     this.nextMethodShim = this.next.bind(this);
     this.createVideos();
     this.initVisibilitySensor();
-    this.tabButtonNodes.forEach(node => {
+    this.tabButtonNodes.forEach((node, index) => {
       node.addEventListener('click', () => {
         const prevVideoNode = this.currentVideoNode;
         prevVideoNode.pause();
-        this.currentIndex = nextTabIndex(this.tabButtonNodes, this.currentIndex);
-        this.currentVideoNode = this.videoNodes[this.currentIndex];
+        this.currentVideoNode = this.videoNodes[index];
+        this.currentVideoNode.pause();
         this.currentVideoNode.currentTime = 0;
         console.log('tab switched', this.currentVideoNode);
         this.currentVideoNode.load();
         this.currentVideoNode.play();
+        this.currentIndex = index;
         setTimeout(() => {
           prevVideoNode.currentTime = 0;
         }, 100);
