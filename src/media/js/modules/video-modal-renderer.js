@@ -38,7 +38,7 @@ class VideoModalRenderer extends StatefulComponent {
   // eslint-disable-next-line
   render() {
     ReactDOM.render(
-      <VideoModal show={this.state.modalShown} videoId={'374027762'} onClose={this.handleClose} />,
+      <VideoModal show={this.state.modalShown} videoId={'380597041'} onClose={this.handleClose} />,
       modalRoot
     );
   }
