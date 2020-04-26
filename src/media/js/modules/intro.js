@@ -1,6 +1,6 @@
 import { nextTabAndReturnNewIndex } from '../utils/utils';
 
-const TIMEOUT = 5000;
+const TIMEOUT = 25000;
 
 class Intro {
   constructor() {
