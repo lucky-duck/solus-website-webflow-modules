@@ -39,7 +39,9 @@ class Tabs extends Component {
     setTimeout(() => {
       const nextIndex = nextTabIndex(this.tabButtonNodes, this.currentIndex);
       const nextTabNode = this.tabButtonNodes[nextIndex];
-    }, 350);
+      nextTabNode.click();
+
+    }, 1350);
   }
 
   createVideos() {
